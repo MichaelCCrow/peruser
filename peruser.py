@@ -33,43 +33,43 @@ def write_to_csv(rid, onlinks):
         cswriter = csv.writer(csvfile)
         cswriter.writerow([rid] + [onlinks])
 
-def copy(srcfile, recordid):
-    destination = '/var/data_operational/'+recordid+'/'
-    # if not os.path.isdir(destination):
-        # print('making dir: '+destination)
-        # os.mkdir(destination)"
-    destination += srcfile.split('/')[-1]
+
+def copy(srcfile, filename, rid):
+    destination = '/var/data_operational/{}/'.format(rid)
+    if not os.path.isdir(destination):
+        print('making dir: '+destination)
+        os.mkdir(destination)
+        os.mkdir(destination+'data')
+        os.mkdir(destination+'documentation')
+    destination += filename
     print('copying '+srcfile+'    ->    '+destination)
-    try:
-        print('size: ', os.path.getsize(srcfile))
-    except: pass
-    # copyfile(srcfile, destination)
+    if os.path.isdir('/var/data_operational'):
+        if os.path.isfile(srcfile):
+            if os.path.getsize(srcfile) > 1000000000:
+                with open('toolarge.txt', 'a') as tl: tl.write('record id: '+rid+' -- '+srcfile+'\n')
+            else: copyfile(srcfile, destination)
+        else:
+            with open('errors.log', 'a') as err: err.write('record id: '+rid+' -- '+srcfile+'\n')
 
 def analyze_links(links, rid):
-    links = filterdoi(links)
-    badlinks = getimproper(links)
-    for link in badlinks:
-        path = link.split('/data/outgoing/')[1]
-        # file = link.split('/')[-1]
+    improper_links = getimproper(filterdoi(links))
+    for link in improper_links:
+        srcpath = link.split('/data/outgoing/')[1]
+        file = link.split('/')[-1]
         # print('link: '+link)
-        srcfile = '/var/data_operational/'+path
-        copy(srcfile, rid)
-    # for link in badlinks: print(link)
-    # for link in links: print(link)
+        srcfile = '/var/data_operational/'+srcpath
+        copy(srcfile, file, rid)
 
 def traverse(files):
     write_csv_header()
     for file in files:
         f = ET.parse(path+file)
         rid = f.find("ome/record_id").text
-        # print(rid)
+        print(rid)
         onlink_element = f.findall("idinfo/citation/citeinfo/onlink")
         onlinks = [ o.text for o in onlink_element ]
         write_to_csv(rid, onlinks)
         analyze_links(onlinks, rid)
-
-
-
 
 files = listdir_nohidden(path)
 traverse(files)

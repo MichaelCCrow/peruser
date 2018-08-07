@@ -2,7 +2,7 @@ RecordID,Datalinks
 NGA001,"['ftp://ngee.ornl.gov/data/outgoing/site_characterization_and_design/ArchiveALTMoist.xlsx', 'http://dx.doi.org/10.5440/1177857']"
 NGA000,"['ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/Active_Layer_Soil_Carbon_and_Nutrient_Mineralization_User_Guidance_Document.pdf', 'http://dx.doi.org/10.5440/1185213', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/Schadel_et_al_2015_NGEE_Arctic_Barrow_Soil_Incubations_2012.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/Treat_et_al_2015_NGEE_Arctic_Barrow_Soil_Incubations_2012.csv']"
 NGA002,"['ftp://ngee-arctic.ornl.gov/data/outgoing/landscape_characterization/jcherry_BEO_images_2013', 'http://webmap.ornl.gov/mapwidget/widget_ngee.html?dsid=111115', 'http://dx.doi.org/10.5440/1167159']"
-NGA136,[]
+NGA134,[]
 NGA003,['http://dx.doi.org/10.5440/1183993']
 NGA004,"['http://dx.doi.org/10.5440/1167674', 'ftp://ngee.ornl.gov/data/outgoing/fine-scale_modeling/CalibratedParameters.xlsx']"
 NGA005,[]
@@ -23,8 +23,7 @@ NGA017,"['http://dx.doi.org/10.5440/1224720', 'ftp://ngee.ornl.gov/data/outgoing
 NGA018,"['http://dx.doi.org/10.5440/1109234', 'ftp://ngee.ornl.gov/data/outgoing/landscape_characterization/2012_DEM_Barrow', 'http://webmap.ornl.gov/mapwidget/widget_ngee.html?dsid=111116']"
 NGA019,[]
 NGA119,"['ftp://ngee.ornl.gov/data/outgoing/electrical_and_seismic_response_saline_permafrost_soil/data', 'http://dx.doi.org/10.5440/1374172']"
-NGA112,"['ftp://ngee.ornl.gov/data/outgoing/eddy_covariance_flux_tower_data_barrow_2012_2016/documentation', 'http://dx.doi.org/10.5440/1362279', 'ftp://ngee.ornl.gov/data/outgoing/eddy_covariance_flux_tower_data_barrow_2012_2016/data']"
-NGA112,['http://dx.doi.org/10.5440/1362279']
+NGA112,"['ftp://ngee.ornl.gov/data/outgoing/eddy_covariance_flux_tower_data_barrow_2012_2016/data', 'ftp://ngee.ornl.gov/data/outgoing/eddy_covariance_flux_tower_data_barrow_2012_2016/documentation', 'http://dx.doi.org/10.5440/1362279']"
 NGA108,[]
 NGA110,[]
 NGA021,"['ftp://ngee.ornl.gov/data/outgoing/hydrology_and_geomorphology/LANL_MasterCompiled_Geochemical_Isotopic__Water_Metadata_12-02-2014.xlsx', 'http://dx.doi.org/10.5440/1164892']"
@@ -37,10 +36,9 @@ NGA027,"['http://dx.doi.org/10.1002/2014GB005044', 'ftp://ngee.ornl.gov/data/out
 NGA028,['http://ngee-arctic.ornl.gov/site1_plot_pics']
 NGA029,"['ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/Intensive_Site_1_vegetation_plot_photos_2012_jpg', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_Vegetation_plot_layout_diagram.pdf', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_Vegetation_plot_locations.csv']"
 NGA120,"['ftp://ngee.ornl.gov/data/outgoing/leaf_area_veg_biomass_nutrient_content/documentation', 'http://dx.doi.org/10.5440/1375316', 'ftp://ngee.ornl.gov/data/outgoing/leaf_area_veg_biomass_nutrient_content/data']"
-NGA030,"['http://dx.doi.org/10.5440/1336812', 'ftp://ngee.ornl.gov/data/outgoing/lma_leaf_carbon_nitrogen/documentation/', 'ftp://ngee.ornl.gov/data/outgoing/lma_leaf_carbon_nitrogen/data/', 'DOI:10.1111/nph.14740']"
-NGA030,"['ftp://ngee.ornl.gov/data/outgoing/lma_leaf_carbon_nitrogen/data/NGEEArctic_BNL_leaf_C_N_LMA_2012-2015.xlsx', 'http://dx.doi.org/10.5440/1336812']"
+NGA030,"['ftp://ngee.ornl.gov/data/outgoing/lma_leaf_carbon_nitrogen/data/', 'DOI:10.1111/nph.14740', 'http://dx.doi.org/10.5440/1336812', 'ftp://ngee.ornl.gov/data/outgoing/lma_leaf_carbon_nitrogen/documentation/']"
 NGA103,[]
-NGA031,"['ftp://ngee.ornl.gov/data/outgoing/leaf_photosynthetic_parameters_Vcmax_Jmax/data/', 'ftp://ngee.ornl.gov/data/outgoing/leaf_photosynthetic_parameters_Vcmax_Jmax/documentation', 'http://dx.doi.org/10.5440/1336809', 'http://dx.doi.org/10.1111/nph.14740']"
+NGA031,"['http://dx.doi.org/10.5440/1336809', 'http://dx.doi.org/10.1111/nph.14740', 'ftp://ngee.ornl.gov/data/outgoing/leaf_photosynthetic_parameters_Vcmax_Jmax/data/', 'ftp://ngee.ornl.gov/data/outgoing/leaf_photosynthetic_parameters_Vcmax_Jmax/documentation']"
 NGA032,['ftp://ngee.ornl.gov/data/outgoing/BNL_Barrow_leaf_spectral_reflectance/data']
 NGA033,['ftp://ngee.ornl.gov/data/outgoing/BNL_Seward_Leaf_Spectral_Reflectance/data']
 NGA034,"['ftp://ngee.ornl.gov/data/outgoing/site_characterization_and_design/Dafflon_low_altitude_remote_sensing_dataset', 'http://dx.doi.org/10.5440/1177858']"
@@ -52,25 +50,25 @@ NGA051,"['ftp://ngee.ornl.gov/data/outgoing/core_location_and_characteristics/da
 NGA038,['ftp://ngee.ornl.gov/data/outgoing/BNL_Barrow_Canopy_Spectral_Reflectance/data']
 NGA040,['ftp://ngee.ornl.gov/data/outgoing/BNL_DTLB_Canopy_Spectra/data']
 NGA041,['ftp://ngee.ornl.gov/data/outgoing/BNL_Seward_Canopy_Spectral_Reflectance/data']
+NGA045,"['ftp://ngee.ornl.gov/data/outgoing/Plant_Traits_plant_biomass_traits_KGMM64/data', 'ftp://ngee.ornl.gov/data/outgoing/Plant_Traits_plant_biomass_traits_KGMM64/documentation']"
 NGA046,[]
 NGA044,['ftp://ngee.ornl.gov/data/outgoing/Plant_Traits_soil_depth_KGMM64/data']
 NGA049,"['ftp://ngee.ornl.gov/data/outgoing/Plant_Traits_Soil_Temperature_Moisture_KG_MM64/documentation', 'ftp://ngee.ornl.gov/data/outgoing/Plant_Traits_Soil_Temperature_Moisture_KG_MM64/data', 'http://dx.doi.org/10.5440/1346195']"
 NGA050,"['ftp://ngee.ornl.gov/data/outgoing/Plant_Traits_VegPlot_Locations_Ecotypes_Photos_KG_MM64/documentation/', 'ftp://ngee.ornl.gov/data/outgoing/Plant_Traits_VegPlot_Locations_Ecotypes_Photos_KG_MM64/data/', 'http://dx.doi.org/10.5440/1346196']"
 NGA043,['ftp://ngee.ornl.gov/data/outgoing/BNL_DTLB_TIR_and_Digital_Photos/data']
-NGA118,"['http://dx.doi.org/10.5440/1374599', 'ftp://ngee.ornl.gov/data/outgoing/ngee_arctic_tram_continuous_soil_measurments/data', 'ftp://ngee.ornl.gov/data/outgoing/ngee_arctic_tram_continuous_soil_measurments/documentation']"
+NGA118,"['ftp://ngee.ornl.gov/data/outgoing/ngee_arctic_tram_continuous_soil_measurements_barrow/documentation', 'http://dx.doi.org/10.5440/1374599', 'ftp://ngee.ornl.gov/data/outgoing/ngee_arctic_tram_continuous_soil_measurements_barrow/data']"
+NGA123,"['ftp://ngee.ornl.gov/data/outgoing/ngee_arctic_tram_photos_vegetation_communities_barrow/data', 'ftp://ngee.ornl.gov/data/outgoing/ngee_arctic_tram_photos_vegetation_communities_barrow/documentation']"
 NGA016,"['http://ngee-arctic.ornl.gov/content/ngee-arctic-webcam-barrow-environmental-observatory-view-1', 'http://ngee-arctic.ornl.gov/content/ngee-arctic-webcam-barrow-environmental-observatory-view-2', 'http://dx.doi.org/10.5440/1163352']"
-NGA073,"['http://dx.doi.org/10.5440/1163352', 'http://ngee-arctic.ornl.gov/content/ngee-arctic-webcam-barrow-environmental-observatory-view-2', 'http://ngee-arctic.ornl.gov/content/ngee-arctic-webcam-barrow-environmental-observatory-view-1']"
 NGA042,"['ftp://ngee.ornl.gov/data/outgoing/BNL_2016_Barrow_ZPW_PhenoCamera_Images/data', 'http://dx.doi.org/10.5440/1358195']"
 NGA052,['ftp://ngee-arctic.ornl.gov/data/outgoing/geospatial/instrumentation_and_sample_site_coordinates']
 NGA053,['https://docs.google.com/spreadsheets/d/1K_eRNJjP3noqx_1CC0CzhiFsaGIFXU_o5Qh8BasLpD0/edit?usp=sharing']
 NGA054,"['ftp://ngee.ornl.gov/data/outgoing/biogeochemistry/Nitrogen_isotopic_comp_of_SOM_DON_fractions_20150527.csv', 'http://dx.doi.org/10.5440/1179130', 'ftp://ngee.ornl.gov/data/outgoing/biogeochemistry/Nitrogen_concentration_and_isotopic_comp_in_water_20150527.csv', 'ftp://ngee.ornl.gov/data/outgoing/biogeochemistry/Nitrogen_concentration_and_isotope_dataset_for_environmental_samples_20150527.pdf']"
 NGA055,"['ftp://ngee.ornl.gov/data/outgoing/organic_C_transformation_Hg_methylation/data/', 'http://dx.doi.org/10.5440/1235032', 'ftp://ngee.ornl.gov/data/outgoing/organic_C_transformation_Hg_methylation/documentation/']"
-NGA056,"['http://dx.doi.org/10.5440/1120920', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_Vegetation_plot_layout_diagram.pdf', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_3.2_Plant_available_nutrients_all_Barrow_2012_blanks_v1.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_3 2_Plant_available_nutrients_Barrow_User_File_v1.pdf', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_3.2_Plant_available_nutrients_all_Barrow_2012_v1.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_3.2_Plant_available_nutrients_nitrogen_Barrow_2013_blanks_v1.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_Vegetation_plot_locations.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/PRS_Operations_Manual_6th_Edition_June_2010.pdf', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_3.2_Plant_available_nutrients_nitrogen_Barrow_2013_v1.csv']"
+NGA056,"['ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/PRS_Operations_Manual_6th_Edition_June_2010.pdf', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_3.2_Plant_available_nutrients_all_Barrow_2012_v1.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_Vegetation_plot_layout_diagram.pdf', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_3 2_Plant_available_nutrients_Barrow_User_File_v1.pdf', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_3.2_Plant_available_nutrients_all_Barrow_2012_blanks_v1.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_3.2_Plant_available_nutrients_nitrogen_Barrow_2013_blanks_v1.csv', 'http://dx.doi.org/10.5440/1120920', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_Vegetation_plot_locations.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_3.2_Plant_available_nutrients_nitrogen_Barrow_2013_v1.csv']"
 NGA057,"['http://dx.doi.org/10.5440/1129476', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_Vegetation_plot_locations.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_1_2_vegetation_canopy_height_Barrow_2012_v1.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_vegetation_survey_transects_Barrow_2013_v1.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_vegetation_survey_transect_coordinates_Barrow_2013_v1.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_1_2_species_leaf_height_Barrow_2012_v1.csv', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_1_2_species_list_plant_community_survey_Barrow_2012_v1.pdf', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/Intensive_Site_1_vegetation_plot_photos_2012_jpg', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_1_2_plant_community_composition_vegetation_height_User_Guidance_Document_v1.pdf', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_Vegetation_plot_layout_diagram.pdf', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_1_2_plant_community_composition_Barrow_2012_v1.csv']"
 NGA059,"['ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/Plant_roots_in_arctic_tundra_Supporting_Information_Table_S1_20140729.pdf', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/V_Plant Root Characteristics and Dynamics in Arctic Tundra Ecosystems 1960-2012_User_Guidance_Document_v1.pdf', 'http://dx.doi.org/10.5440/1114222', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/Plant_roots_in_arctic_tundra_20140827.xlsx', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/Plant_roots_in_arctic_tundra_20140827.csv']"
 NGA015,['ftp://ngee.ornl.gov/data/outgoing/radiocarbon_soil_and_CO2_surface_gas_flux_temp_moisture_barrow/documentation']
 NGA058,"['ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/ECT_arcticpfts_k6.wtmeanall.clustpoint.pheno_scaled.nc', 'http://dx.doi.org/10.5440/1123668', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/LiDAR_ECT.PNG', 'http://dx.doi.org/10.3390/rs8090733', 'ftp://ngee.ornl.gov/data/outgoing/vegetation_dynamics/ECT_arcticpfts_k6.wtmeanall.clustpoint.pheno_scaled.nc.aux.xml']"
-NGA125,[]
 NGA060,"['http://dx.doi.org/10.5440/1236472', 'ftp://ngee.ornl.gov/data/outgoing/snow_depth_density_barrow_2012_2014']"
 NGA072,['ftp://ngee.ornl.gov/data/outgoing/soil_mesocosm_CO2_CH4_emissions_13Cglucose_addition/documentation']
 NGA061,"['ftp://ngee.ornl.gov/data/outgoing/soil_organic_carbon_degradation_during_incubation/data/', 'ftp://ngee.ornl.gov/data/outgoing/soil_organic_carbon_degradation_during_incubation/documentation', 'http://dx.doi.org/10.5440/1168992']"
@@ -86,10 +84,7 @@ NGA116,"['ftp://ngee.ornl.gov/pub/incoming/NGA116.Vegetation Phenology from Phen
 NGA070,"['ftp://ngee.ornl.gov/data/outgoing/time_lapse_photos_beo/documentation/', 'ftp://ngee.ornl.gov/data/outgoing/time_lapse_photos_beo/data/']"
 NGA111,[]
 NGA109,[]
-NGA104,[]
 NGA102,[]
 NGA105,[]
 NGA106,[]
 NGA071,"['ftp://ngee.ornl.gov/data/outgoing/BNL_ZPW_prototype_barrow_2016/data', 'http://dx.doi.org/10.5440/1343066', 'ftp://ngee.ornl.gov/data/outgoing/BNL_ZPW_prototype_barrow_2016/documentation']"
-NGA502,[]
-NGA503,[]
