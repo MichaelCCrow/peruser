@@ -1,136 +1,132 @@
-import socket
+#!/usr/local/bin/python3
+# import socket
 import xml.etree.ElementTree as ET
 import os
-import configparser
-from json import loads as loadjson
-from time import sleep
+import sys
+import argparse
 
-# path = '/metadata/ngee/accepted/'
 path = '/metadata/ngee/approved/'
-if 'mcimac' in socket.gethostname(): path = '/metadata/ngee/test/approved/'
-modifypath = '/metadata/ngee/modified/'
+# if 'mcimac' in socket.gethostname(): path = '/metadata/ngee/test/approved/'
+missing = []
+# printlist = [
+#     'idinfo/citation/citeinfo/onlink',
+#     'idinfo/citation/citeinfo/lworkcit/citeinfo/onlink',
+#     'ome/record_id'
+# ]
 
+class Peruser(object):
+    def __init__(self, verbose, xpath, include=None, filter=None, fromdb=False):
+        self.verbose = verbose
+        self.xpath = xpath
+        self.include = include
+        self.filter = filter
+        self.fromdb = fromdb
+        self.count = 0
+
+    def traverse(self, files):
+        for file in files:
+            tree =  ET.fromstring(file) if self.fromdb else ET.parse(os.path.join(path, file))
+            rid = getrecordid(tree)
+            if self.include_in_result(tree, rid):
+                quarry = tree.find(self.xpath)
+                if quarry is not None:
+                    quarry = quarry.text
+                    print(rid+':'+quarry)
+                    self.count+=1
+                else: missing.append(rid)
+                # if self.verbose: self.printelements(printlist, tree)
+
+        print('[COUNT] ', self.count)
+        if len(missing)>0: print('--------------------\nMissing:\n', missing)
+
+    def include_in_result(self, tree, rid):
+        if self.include is not None and not self.fromdb:
+            return rid in self.include.split(',')
+        if self.filter is None: return True
+
+        for item in self.filter:
+            if ':' in item:
+                f = item.split(':')
+                k = f[0]
+                v = f[1]
+                val = tree.find(k)
+                if val is not None and val.text == v:
+                    return True
+                else: return False
+            else:
+                el = tree.find(item)
+                exists = el is not None and not el.text.startswith('[')
+                return exists
+
+    # def printelements(self, printlist, tree):
+    #     for i in printlist:
+    #         element = tree.findall(i)
+    #         for e in element:
+    #             print(e.text)
+
+'''Get list of xml files from directory'''
 def listdir_nohidden(path):
     for f in os.listdir(path):
-        if not f.startswith('.') and f.endswith(".xml"): # yield f
-            if ET.parse(path+f).find('ome/record_id') is not None:
+        if not f.startswith('.') and f.endswith('.xml'): # yield f
+            if ET.parse(os.path.join(path, f)).find('ome/record_id') is not None:
                 yield f
 
-def getrecordid(parsedfile):
-    try:
-        return parsedfile.find("ome/record_id").text
-    except: pass
+'''Get list of raw xmls strings from database'''
+def querydb(include=None, verbose=False):
+    import mysql.connector as sql
+    conn = sql.connect(database='NGEE_Arctic_v2', user='ngeeadmin', password='ngee4db!', host='localhost')
+    cursor = conn.cursor(prepared=True)
+    query = 'SELECT xml FROM raw_fgdc'
+    if include is not None:
+        query += ' WHERE record_id in ({})'.format(str(include.split(','))[1:-1])
+    if verbose: print(query)
+    cursor.execute(query)
+    result = cursor.fetchall()
+    conn.close()
+    return result
 
-def getdoi(links):
+def getrecordid(parsedfile):
+    el = parsedfile.find('ome/record_id')
+    return el.text if el is not None else None
+
+def getdoi(links): # ngee doi
     for link in links:
         if '10.5440' in link:
             yield link
 
-class Peruser(object):
-    def __init__(self, do_print, do_modify):
-        self.do_print = do_print
-        self.do_modify = do_modify
-        self.count = 0
-
-    def traverse(self, files, printlist, modifylist):
-        for file in files:
-            ftree = ET.parse(path+file)
-            rid = getrecordid(ftree)
-            print(rid)
-            if do_print: self.printelements(printlist, ftree)
-            if do_modify: self.modify(file, modifylist, ftree)
-
-            self.setdoi(file, ftree, modifylist)
-        print('[COUNT] ',self.count)
-
-    def printelements(self, printlist, ftree):
-        for i in printlist:
-            element = ftree.findall(i)
-            for e in element:
-                print(e.text)
-
-    def modify(self, file, modifylist, ftree):
-        for i in modifylist:
-            newvalue = i.get('new')
-            oldpath = i.get('old')
-            oldelement = ftree.find(oldpath)
-            print('old: '+ oldelement.text)
-            print('new: '+ newvalue)
-            # oldelement.text = newvalue
-        # ftree.write(modifypath+file)
-
-    def setdoi(self, file, ftree, doipaths):
-        # testfile = path + 'ZZ_MCUTesting_3_21_2018_3_49_34_PM_SOME_RENAME.NGA503.xml'
-        # onlink_element = ftree.findall("idinfo/citation/citeinfo/onlink")
-        onlink_element = ftree.findall(doipaths.get('old'))
-        onlinks = [o.text for o in onlink_element]
-        doilink = [ l for l in getdoi(onlinks) ]
-        try: doilink = doilink[0]
-        except Exception as e:
-            print('[NO DOI FOUND] '+getrecordid(ftree))
-            return
-        # replacepath = 'idinfo/citation/citeinfo/lworkcit/citeinfo/onlink'
-        doielement = ftree.find(doipaths.get('new'))
-        if doielement is None:
-            print('[DOI tag not found] ' + getrecordid(ftree))
-            return
-            # if 'mcimac' in socket.gethostname():
-            #     parent = ftree.find('idinfo/citation/citeinfo')
-            #     child = ET.Element('lworkcit')
-            #     parent.append(child)
-            #     parent = child
-            #     child = ET.Element('citeinfo')
-            #     parent.append(child)
-            #     parent = child
-            #     child = ET.Element('onlink')
-            #     parent.append(child)
-            #     child.text = '[DOI]'
-            #     doielement = child
-            # else:
-            #     print('[DOI tag not found] '+getrecordid(ftree))
-            #     return
-
-        try:
-            print('old: '+doielement.text)
-            print('new: '+doilink)
-            doielement.text = doilink
-            ftree.write(modifypath + file)
-            self.count+=1
-        except: print('[FAILED] doielement text still null '+getrecordid(ftree))
 
 
-        # for i in modifylist:
-        #     print('[WARNING] Modifying files')
-        #     time.sleep(5)
-        #     element = f.findall(i)
-        #     for e in element:
-        #         print('changing: ' + e.text)
-        #         print('to: ' +)
+def main():
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
+    parser.add_argument('-d', '--database', action='store_true', default=False,
+                        help='Flag to indicate whether the xmls to be perused are to be looked up from the database. Default is false, and files are perused from approved directory.')
+    parser.add_argument('-f', '--filter', action='append', required=False,
+                        help='A filter for the printed results in the form key:value or a single value to check for existence.\n'
+                             'Usage: peruser.py -x ome/record_id -f ome/ome_status:approved -f idinfo/citation/citeinfo/pubdate')
+    parser.add_argument('-i', '--include', type=str, required=False,
+                        help='Comma separated list of record_ids to include. Overrides any filters given to the -f option.')
+    parser.add_argument('-v', '--verbose', default=False,
+                        help='Enables more output as the script traverses the xmls')
+    parser.add_argument('-x', '--xpath', type=str, required=True,
+                        help='Desired outputted xpath')
+    parser.add_argument('-p', '--path', required=False, type=str, default='/metadata/ngee/approved/',
+                        help='Path to peruse. Default is /metadata/ngee/approved/')
+    if len(sys.argv) == 1:
+        parser.print_help()
+        exit(0)
 
-# Configure
-config = configparser.ConfigParser(interpolation=configparser.ExtendedInterpolation())
-config.read('config.ini')
+    args = parser.parse_args()
 
+    global path
+    path = args.path
 
-show = config['PRINT']
-modify = config['MODIFY']
-run = config['RUN']
+    if args.database:
+        dbxmls = querydb(include=args.include, verbose=args.verbose)
+        files = [ xml[0].decode() for xml in dbxmls ]
+    else: files = listdir_nohidden(path)
 
-do_print = run.getboolean('print')
-do_modify = run.getboolean('modify')
-do_doi = run.getboolean('doi')
+    peruser = Peruser(verbose=args.verbose, xpath=args.xpath, include=args.include, filter=args.filter, fromdb=args.database)
+    peruser.traverse(files)
 
-peruser = Peruser(do_print, do_modify)
-
-printlist = [ show[i] for i in show ] if do_print else []
-modifylist = [modify[i] for i in modify] if do_modify else loadjson(modify['doi']) if do_doi else []
-
-files = listdir_nohidden(path)
-
-peruser.traverse(files, printlist, modifylist)
-
-# if do_modify:
-#     print('about to do modify')
-#     time.sleep(5)
-#     print(modifylist)
-#     peruser.modify(files, modifylist)
+if __name__ == '__main__':
+    main()
